@@ -78,24 +78,26 @@ class MultiMediaPickerService {
   Future<File?> cropImage({required File imageFile}) async {
     // try, to crop the image and returns a File with cropped image path.
     try {
-      final File? croppedImage = await ImageCropper().cropImage(
+      final CroppedFile? croppedImage = await ImageCropper().cropImage(
         sourcePath: imageFile.path,
         aspectRatioPresets: [
           CropAspectRatioPreset.square,
           CropAspectRatioPreset.original,
         ],
-        androidUiSettings: const AndroidUiSettings(
-          toolbarTitle: 'Crop Image',
-          toolbarColor: Color(0xff18191A),
-          toolbarWidgetColor: Colors.white,
-          backgroundColor: Colors.black,
-          cropGridColor: Colors.white,
-          initAspectRatio: CropAspectRatioPreset.original,
-          lockAspectRatio: false,
-        ),
-        iosUiSettings: const IOSUiSettings(
-          minimumAspectRatio: 1.0,
-        ),
+        uiSettings: [
+          AndroidUiSettings(
+            toolbarTitle: 'Crop Image',
+            toolbarColor: Color(0xff18191A),
+            toolbarWidgetColor: Colors.white,
+            backgroundColor: Colors.black,
+            cropGridColor: Colors.white,
+            initAspectRatio: CropAspectRatioPreset.original,
+            lockAspectRatio: false,
+          ),
+          IOSUiSettings(
+            minimumAspectRatio: 1.0,
+          )
+        ],
       );
       if (croppedImage != null) {
         return File(croppedImage.path);

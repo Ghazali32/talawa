@@ -6,6 +6,8 @@ import 'package:firebase_messaging_platform_interface/firebase_messaging_platfor
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
+import 'package:talawa/main.dart';
+import 'package:talawa/main.dart';
 
 final kMockMessagingPlatform = MockFirebaseMessaging();
 

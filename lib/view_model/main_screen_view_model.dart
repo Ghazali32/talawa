@@ -253,7 +253,6 @@ class MainScreenViewModel extends BaseModel {
     required dynamic Function() onFinish,
   }) {
     tutorialCoachMark = TutorialCoachMark(
-      context,
       targets: targets,
       colorShadow: Theme.of(context).colorScheme.secondaryContainer,
       textSkip: "SKIP",
@@ -273,7 +272,7 @@ class MainScreenViewModel extends BaseModel {
       onClickOverlay: (target) {
         onClickTarget(target);
       },
-    )..show();
+    )..show(context: context);
   }
 
   tourHomeTargets() {

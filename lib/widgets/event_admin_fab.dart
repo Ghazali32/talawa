@@ -14,7 +14,7 @@ Widget eventAdminFab({
   return SpeedDial(
     icon: Icons.menu,
     activeIcon: Icons.close,
-    buttonSize: 55.0,
+    buttonSize:const Size(55,55),
     overlayColor: Theme.of(context).colorScheme.onBackground,
     overlayOpacity: 0.5,
     backgroundColor: Theme.of(context).primaryColor,
